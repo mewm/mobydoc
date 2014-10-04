@@ -1,4 +1,4 @@
-<?php namespace App\Providers;
+<?php namespace Mobydoc\Providers;
 
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Support\ServiceProvider;

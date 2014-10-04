@@ -1,4 +1,4 @@
-<?php namespace App\Http\Filters;
+<?php namespace Mobydoc\Http\Filters;
 
 use Illuminate\Http\Response;
 use Illuminate\Contracts\Foundation\Application;

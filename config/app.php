@@ -98,13 +98,13 @@ return [
 		/*
 		 * Application Service Providers...
 		 */
-		'App\Providers\AppServiceProvider',
-		'App\Providers\ArtisanServiceProvider',
-		'App\Providers\ErrorServiceProvider',
-		'App\Providers\EventServiceProvider',
-		'App\Providers\FilterServiceProvider',
-		'App\Providers\LogServiceProvider',
-		'App\Providers\RouteServiceProvider',
+		'Mobydoc\Providers\AppServiceProvider',
+		'Mobydoc\Providers\ArtisanServiceProvider',
+		'Mobydoc\Providers\ErrorServiceProvider',
+		'Mobydoc\Providers\EventServiceProvider',
+		'Mobydoc\Providers\FilterServiceProvider',
+		'Mobydoc\Providers\LogServiceProvider',
+		'Mobydoc\Providers\RouteServiceProvider',
 
 		/*
 		 * Laravel Framework Service Providers...

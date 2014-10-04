@@ -1,4 +1,4 @@
-<?php namespace App\Providers;
+<?php namespace Mobydoc\Providers;
 
 use InspireCommand;
 use Illuminate\Support\ServiceProvider;
@@ -19,7 +19,7 @@ class ArtisanServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->commands('App\Console\InspireCommand');
+		$this->commands('Mobydoc\Console\InspireCommand');
 	}
 
 	/**
@@ -29,7 +29,7 @@ class ArtisanServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return ['App\Console\InspireCommand'];
+		return ['Mobydoc\Console\InspireCommand'];
 	}
 
 }

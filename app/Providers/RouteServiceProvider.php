@@ -1,4 +1,4 @@
-<?php namespace App\Providers;
+<?php namespace Mobydoc\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Contracts\Routing\UrlGenerator;
@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider {
 	 */
 	public function before(Router $router, UrlGenerator $url)
 	{
-		$url->setRootControllerNamespace('App\Http\Controllers');
+		$url->setRootControllerNamespace('Mobydoc\Http\Controllers');
 	}
 
 	/**
@@ -32,7 +32,7 @@ class RouteServiceProvider extends ServiceProvider {
 		// route group which automatically sets the controller namespace.
 		$this->app->booted(function()
 		{
-			$this->namespaced('App\Http\Controllers', function(Router $router)
+			$this->namespaced('Mobydoc\Http\Controllers', function(Router $router)
 			{
 				require app_path().'/Http/routes.php';
 			});
