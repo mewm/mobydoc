@@ -10,3 +10,4 @@ resources/misc
 resources/assets/temp/
 /auth.json
 .sass-cache
+/public/docs
