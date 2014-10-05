@@ -7,3 +7,6 @@ composer.lock
 composer.phar
 node_modules/
 resources/misc
+resources/assets/temp/
+/auth.json
+.sass-cache
