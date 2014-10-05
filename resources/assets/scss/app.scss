@@ -40,7 +40,80 @@
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
 
+@import "compass/css3/box-shadow";
+body, html {
+  height: 100%;
+}
 body {
   font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+p {
+  font-weight: 300;
+}
+
+
+.row-left {
+  @include grid-row();
+  margin-left: 0px;
+}
+
+.topbar {
+  height: 60px;
+  background-color: #000000;
+  @include box-shadow(black 0px 0px 8px);
+  z-index: 100;
+  position: relative;
+  
+  h1 {
+    font-size: rem-calc(28);
+    font-family: 'Droid Serif', serif;
+    color: white;
+    display: block;
+    padding-left: 12px;
+    padding-top: 10px;
+  }
+}
+
+h1 {
+  font-size: rem-calc(30);
+  font-family: 'Droid Serif', serif;
+}
+
+.menu-column {
+  background-color: #eeeeee;
+  color: black;
+  font-family: 'Droid Serif', serif;
+  padding: 15px 10px 10px 15px;
+  font-weight: normal;
+  min-height:100vh;
+  height: 100%;
+  @include box-shadow(#bababa 0px 0px 5px);
+}
+
+.content-column {
+  padding-top: 15px;
+  padding-left: 22px;
+}
+
+.maxout {
+  width: 100%; 
+  max-width: 100%;
+}
+
+.searchbox {
+  padding-left: 20px !important;
+  padding-top: 13px;
+  input {
+    margin-bottom: 0;
+  }
+}
+
+.searchbox-prefix {
+  padding-top: 13px;
+  a {
+    margin-bottom: 0;
+  }
 }
 
