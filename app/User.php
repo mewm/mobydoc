@@ -1,4 +1,6 @@
-<?php namespace Mobydoc;
+<?php 
+
+namespace Mobydoc;
 
 use Illuminate\Auth\UserTrait;
 use Illuminate\Database\Eloquent\Model;

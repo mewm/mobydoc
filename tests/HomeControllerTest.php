@@ -23,8 +23,7 @@ class HomeControllerTest extends TestCase {
 	
 	public function test_can_load_documentation_service()
 	{
-		$documentationService = $this->app->make('\\Mobydoc\\Documentation\\DocumentationServiceInterface');
-		
-		$this->assertInstanceOf('\\Mobydoc\\Documentation\\DocumentationServiceInterface', $documentationService);
+		$documentationService = $this->app->make('\\Mobydoc\\Documentation\\DocumentationService');
+		$this->assertInstanceOf('\\Mobydoc\\Documentation\\DocumentationService', $documentationService);
 	}
 }

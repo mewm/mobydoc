@@ -17,18 +17,18 @@ return [
 	| choice installed on your machine before you begin development.
 	|
 	*/
-
 	'connections' => [
 
 		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'homestead',
-			'username'  => 'homestead',
-			'password'  => 'secret',
+			'host'      => $_ENV['mysql_host'],
+			'database'  => $_ENV['mysql_db'],
+			'username'  => $_ENV['mysql_user'],
+			'password'  => $_ENV['mysql_pass'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
+			'port'		=> 33060
 		],
 
 		'pgsql' => [

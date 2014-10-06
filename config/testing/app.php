@@ -105,7 +105,6 @@ return [
 		'Mobydoc\Providers\FilterServiceProvider',
 		'Mobydoc\Providers\LogServiceProvider',
 		'Mobydoc\Providers\RouteServiceProvider',
-		'Mobydoc\Providers\DocumentationServiceProvider',
 
 		/*
 		 * Laravel Framework Service Providers...

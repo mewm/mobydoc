@@ -2,7 +2,7 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class DocumentationServiceProvider extends ServiceProvider {
+class StorageServiceProvider extends ServiceProvider {
 
 	/**
 	 * Bootstrap the application services.
@@ -22,8 +22,8 @@ class DocumentationServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bind(
-			'\\Mobydoc\\Documentation\\DocumentationServiceInterface',
-			'\\Mobydoc\\Documentation\\DocumentationService'
+			'Mobydoc\\Storage\\FileRepository',	
+			'Mobydoc\\Storage\\FileRepositoryInterface'	
 		);
 	}
 
