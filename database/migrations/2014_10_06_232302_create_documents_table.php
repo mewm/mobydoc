@@ -16,7 +16,8 @@ class CreateDocumentsTable extends Migration {
 			$table->increments('id');
 
 			$table->string('filename', 255);
-			$table->string('path')->unique();;
+			$table->string('path')->unique();
+			$table->dateTime('file_last_changed');
 			$table->text('html');
 
 			$table->timestamps();

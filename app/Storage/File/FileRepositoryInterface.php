@@ -8,7 +8,7 @@ interface FileRepositoryInterface
 	 *
 	 * @param      $path
 	 *
-	 * @return array
+	 * @return \SplFileInfo[]
 	 */
 	public function getFileTreeRecursively($path);
 }

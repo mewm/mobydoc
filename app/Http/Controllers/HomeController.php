@@ -1,12 +1,22 @@
 <?php namespace Mobydoc\Http\Controllers;
 
 use Illuminate\Routing\Controller;
+use Mobydoc\Documentation\DocSynchronizer;
 
 class HomeController extends Controller
 {
+	/**
+	 * @var DocSynchronizer
+	 */
+	private $docSynchronizer;
 
-	public function __construct()
+
+	/**
+	 * @param DocSynchronizer $docSynchronizer
+	 */
+	public function __construct(DocSynchronizer $docSynchronizer)
 	{
+		$this->docSynchronizer = $docSynchronizer;
 	}
 	/**
 	 * @Get("/", as="home")
@@ -16,5 +26,10 @@ class HomeController extends Controller
 		
 		exit();
 		return view('home.index');
+	}
+	
+	public function synchronizeDocumentation()
+	{
+		$this->docSynchronizer->synchronize();
 	}
 }

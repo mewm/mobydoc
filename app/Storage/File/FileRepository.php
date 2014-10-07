@@ -3,6 +3,9 @@
 namespace Mobydoc\Storage\File;
 
 
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+
 class FileRepository implements FileRepositoryInterface
 {
     /**
@@ -10,7 +13,7 @@ class FileRepository implements FileRepositoryInterface
      *
      * @param      $path
      *
-     * @return array
+     * @return \SplFileInfo[]
      */
     public function getFileTreeRecursively($path)
     {

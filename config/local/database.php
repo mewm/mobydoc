@@ -1,5 +1,4 @@
 <?php
-
 return [
 
 	/*
@@ -21,14 +20,14 @@ return [
 
 		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => $_ENV['mysql_host'],
+			'host'      => 'localhost',
 			'database'  => $_ENV['mysql_db'],
 			'username'  => $_ENV['mysql_user'],
 			'password'  => $_ENV['mysql_pass'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-			'port'		=> 33060
+			'port'		=> 3306
 		],
 
 		'pgsql' => [

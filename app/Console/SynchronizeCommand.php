@@ -2,6 +2,7 @@
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;
+use Mobydoc\Documentation\DocSynchronizer;
 
 class SynchronizeCommand extends Command
 {
@@ -18,26 +19,24 @@ class SynchronizeCommand extends Command
 	 *
 	 * @var string
 	 */
-	protected $description = 'Random quote';
-	
-	
+	protected $description = 'Synchronize';
 	/**
-	 * @var DocumentationService
+	 * @var DocSynchronizer
 	 */
-	private $docService;
+	private $docSynchronizer;
 
 
 	/**
 	 * Create a new command instance.
 	 *
-	 * @param DocumentationService $docService
+	 * @param DocSynchronizer $docSynchronizer
 	 *
 	 * @return \Mobydoc\Console\SynchronizeCommand
 	 */
-	public function __construct(DocumentationService $docService)
+	public function __construct(DocSynchronizer $docSynchronizer)
 	{
 		parent::__construct();
-		$this->docService = $docService;
+		$this->docSynchronizer = $docSynchronizer;
 	}
 
 
@@ -48,7 +47,6 @@ class SynchronizeCommand extends Command
 	 */
 	public function fire()
 	{
-		$this->comment(PHP_EOL . Inspiring::quote() . PHP_EOL);
-		dd($this->docService->getDocumentTree());
+		$this->docSynchronizer->synchronize();
 	}
 }

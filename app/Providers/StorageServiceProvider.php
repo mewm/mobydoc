@@ -22,8 +22,13 @@ class StorageServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bind(
-			'Mobydoc\\Storage\\FileRepository',	
-			'Mobydoc\\Storage\\FileRepositoryInterface'	
+			'Mobydoc\\Storage\\File\\FileRepositoryInterface',	
+			'Mobydoc\\Storage\\File\\FileRepository'	
+		);
+		
+		$this->app->bind(
+			'Mobydoc\\Storage\\Document\\DocumentRepositoryInterface',	
+			'Mobydoc\\Storage\\Document\\DocumentRepository'	
 		);
 	}
 
