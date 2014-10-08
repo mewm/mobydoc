@@ -19,6 +19,7 @@ class CreateDocumentsTable extends Migration {
 			$table->string('path')->unique();
 			$table->dateTime('file_last_changed');
 			$table->text('html');
+			$table->text('markdown');
 
 			$table->timestamps();
 		});
