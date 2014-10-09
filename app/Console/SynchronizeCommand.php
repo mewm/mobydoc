@@ -2,7 +2,7 @@
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;
-use Mobydoc\Documentation\DocSynchronizer;
+use Mobydoc\Documentation\DocumentSynchronizer;
 
 class SynchronizeCommand extends Command
 {
@@ -21,7 +21,7 @@ class SynchronizeCommand extends Command
 	 */
 	protected $description = 'Synchronize';
 	/**
-	 * @var DocSynchronizer
+	 * @var DocumentSynchronizer
 	 */
 	private $docSynchronizer;
 
@@ -29,11 +29,11 @@ class SynchronizeCommand extends Command
 	/**
 	 * Create a new command instance.
 	 *
-	 * @param DocSynchronizer $docSynchronizer
+	 * @param DocumentSynchronizer $docSynchronizer
 	 *
 	 * @return \Mobydoc\Console\SynchronizeCommand
 	 */
-	public function __construct(DocSynchronizer $docSynchronizer)
+	public function __construct(DocumentSynchronizer $docSynchronizer)
 	{
 		parent::__construct();
 		$this->docSynchronizer = $docSynchronizer;

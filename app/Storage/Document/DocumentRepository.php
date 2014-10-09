@@ -22,19 +22,19 @@ class DocumentRepository implements DocumentRepositoryInterface
 
 
 	/**
-     * @author Dennis Micky Jensen <dj@miinto.com>
-     *
-     * @param $path
-     *
-     * @return Document
-     */
-    public function getByPath($path)
+	 * @author Dennis Micky Jensen <dj@miinto.com>
+	 *
+	 * @param $path
+	 *
+	 * @return Document
+	 */
+	public function getByPath($path)
 	{
 		$_documents = $this->document->where('path', $path)
 		                             ->orderBy('created_date', 'desc')
 		                             ->first();
-        
-        return $_documents;
+
+		return $_documents;
 	}
 
 
@@ -44,6 +44,7 @@ class DocumentRepository implements DocumentRepositoryInterface
 	public function getAll()
 	{
 		$_documents = $this->document->get();
+
 		return $_documents;
 	}
 
@@ -55,5 +56,20 @@ class DocumentRepository implements DocumentRepositoryInterface
 	public function getLatestDocumentRevisions()
 	{
 		// TODO: Implement getLatestDocumentRevisions() method.
+	}
+
+
+	public function save($document)
+	{
+	}
+
+
+	/**
+	 * @author Dennis Micky Jensen <dj@miinto.com>
+	 * @return Document[]
+	 */
+	public function getAllIndexedByPath()
+	{
+		$_allDocuments = $this->getAll();
 	}
 } 

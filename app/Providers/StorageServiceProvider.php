@@ -23,7 +23,7 @@ class StorageServiceProvider extends ServiceProvider {
 	{
 		$this->app->bind(
 			'Mobydoc\\Storage\\File\\FileRepositoryInterface',	
-			'Mobydoc\\Storage\\File\\FileRepository'	
+			'Mobydoc\\Storage\\File\\FsFileRepository'	
 		);
 		
 		$this->app->bind(
