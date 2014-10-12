@@ -2,9 +2,8 @@
 
 use Illuminate\Routing\Controller;
 use Mobydoc\Documentation\DocumentService;
-use Mobydoc\Documentation\DocumentSynchronizer;
 
-class HomeController extends Controller
+class HomeController
 {
 	/**
 	 * @var DocumentService

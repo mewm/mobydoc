@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDocumentMetaTable extends Migration {
+class CreateUsersTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,12 @@ class CreateDocumentMetaTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('document_meta', function(Blueprint $table) {
+		Schema::create('users', function(Blueprint $table)
+		{
 			$table->increments('id');
-
-			$table->string('filename', 255);
-			$table->string('path')->unique();
-			$table->text('html');
-			$table->text('markdown');
+			$table->string('email')->unique();
+			$table->string('password', 60);
 			$table->timestamps();
-			$table->softDeletes();
 		});
 	}
 
@@ -31,7 +28,7 @@ class CreateDocumentMetaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('document_meta');
+		Schema::drop('users');
 	}
 
 }

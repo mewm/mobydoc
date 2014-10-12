@@ -1,31 +1,51 @@
 <?php namespace Mobydoc\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Routing\Router;
+use Illuminate\Routing\Stack\Builder as Stack;
+use Illuminate\Foundation\Support\Providers\AppServiceProvider as ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider {
 
 	/**
-	 * Bootstrap any necessary services.
+	 * All of the application's route middleware keys.
 	 *
-	 * @return void
+	 * @var array
 	 */
-	public function boot()
-	{
-		//
-	}
+	protected $middleware = [
+		'auth' => 'Mobydoc\Http\Middleware\AuthMiddleware',
+		'auth.basic' => 'Mobydoc\Http\Middleware\BasicAuthMiddleware',
+		'csrf' => 'Mobydoc\Http\Middleware\CsrfMiddleware',
+		'guest' => 'Mobydoc\Http\Middleware\GuestMiddleware',
+	];
 
 	/**
-	 * Register the service provider.
+	 * The application's middleware stack.
+	 *
+	 * @var array
+	 */
+	protected $stack = [
+		'Mobydoc\Http\Middleware\MaintenanceMiddleware',
+		'Illuminate\Cookie\Middleware\Guard',
+		'Illuminate\Cookie\Middleware\Queue',
+		'Illuminate\Session\Middleware\Reader',
+		'Illuminate\Session\Middleware\Writer',
+	];
+
+	/**
+	 * Build the application stack based on the provider properties.
 	 *
 	 * @return void
 	 */
-	public function register()
+	public function stack()
 	{
-		// This service provider is a convenient place to register your services
-		// in the IoC container. If you wish, you may make additional methods
-		// or service providers to keep the code more focused and granular.
-
-		//
+		$this->app->stack(function(Stack $stack, Router $router)
+		{
+			return $stack
+				->middleware($this->stack)->then(function($request) use ($router)
+				{
+					return $router->dispatch($request);
+				});
+			});
 	}
 
 }

@@ -1,16 +1,16 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
+	"name": "mewm/mobydoc",
+	"description": "",
+	"keywords": [],
 	"license": "MIT",
 	"type": "project",
 	"require": {
 		"laravel/framework": "~5.0",
+		"laravel/elixir": "~1.0",
 		"erusev/parsedown-extra": "dev-master"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "~4.0",
-		"mockery/mockery": "~0.9@dev"
+		"phpunit/phpunit": "~4.0"
 	},
 	"autoload": {
 		"classmap": [
@@ -24,6 +24,8 @@
 	"scripts": {
 		"post-install-cmd": [
 			"php artisan clear-compiled",
+			"php artisan route:scan",
+			"php artisan event:scan",
 			"php artisan optimize"
 		],
 		"post-update-cmd": [

@@ -1,10 +1,10 @@
 <?php
 
-namespace Mobydoc\Storage\Document;
+namespace Mobydoc\Storage\DocumentMeta;
 
 use Mobydoc\Document;
 
-interface DocumentRepositoryInterface
+interface DocumentMetaRepositoryInterface
 {
 	/**
      * @author Dennis Micky Jensen <dj@miinto.com>

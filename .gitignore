@@ -1,10 +1,11 @@
-.env.*
 /.idea
 /vendor
+.env
 .DS_Store
 Thumbs.db
 composer.lock
 composer.phar
+.env.*
 node_modules/
 resources/misc
 resources/assets/temp/

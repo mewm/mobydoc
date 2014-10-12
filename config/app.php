@@ -39,7 +39,7 @@ return [
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'Europe/Copenhagen',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
 	|
 	*/
 
-	'key' => 'OinlPHP0IeosAfmsFH7eacO0uuGE4ACZ',
+	'key' => '8CIv8twlW6z7SZJfeS6NnB5neEVf1Aid',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -102,10 +102,8 @@ return [
 		'Mobydoc\Providers\ArtisanServiceProvider',
 		'Mobydoc\Providers\ErrorServiceProvider',
 		'Mobydoc\Providers\EventServiceProvider',
-		'Mobydoc\Providers\FilterServiceProvider',
 		'Mobydoc\Providers\LogServiceProvider',
 		'Mobydoc\Providers\RouteServiceProvider',
-	    'Mobydoc\Providers\StorageServiceProvider',
 
 		/*
 		 * Laravel Framework Service Providers...
@@ -125,7 +123,7 @@ return [
 		'Illuminate\Pagination\PaginationServiceProvider',
 		'Illuminate\Queue\QueueServiceProvider',
 		'Illuminate\Redis\RedisServiceProvider',
-		'Illuminate\Auth\Reminders\ReminderServiceProvider',
+		'Illuminate\Auth\Passwords\PasswordResetServiceProvider',
 		'Illuminate\Session\SessionServiceProvider',
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',

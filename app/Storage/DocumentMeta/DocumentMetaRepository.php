@@ -1,10 +1,10 @@
 <?php
 
-namespace Mobydoc\Storage\Document;
+namespace Mobydoc\Storage\DocumentMeta;
 
 use Mobydoc\Document;
 
-class DocumentRepository implements DocumentRepositoryInterface
+class DocumentMetaRepository implements DocumentMetaRepositoryInterface
 {
 	/**
 	 * @var Document

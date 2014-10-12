@@ -1,12 +1,12 @@
 <?php
 
-namespace Mobydoc\Storage\File;
+namespace Mobydoc\Documentation;
 
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use SplFileInfo;
 
-class FsFileRepository implements FileRepositoryInterface
+class FileTree
 {
 	/**
 	 * @author Dennis Micky Jensen <dj@miinto.com>
@@ -41,7 +41,7 @@ class FsFileRepository implements FileRepositoryInterface
 	 *
 	 * @param $path
 	 *
-	 * @return array
+	 * @return Spl
 	 */
 	public function getFlatFileTreeIndexedByPath($path)
 	{

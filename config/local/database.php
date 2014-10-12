@@ -1,4 +1,5 @@
 <?php
+
 return [
 
 	/*
@@ -16,18 +17,18 @@ return [
 	| choice installed on your machine before you begin development.
 	|
 	*/
+
 	'connections' => [
 
 		'mysql' => [
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => $_ENV['mysql_db'],
-			'username'  => $_ENV['mysql_user'],
-			'password'  => $_ENV['mysql_pass'],
+			'database'  => 'homestead',
+			'username'  => 'homestead',
+			'password'  => 'secret',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-			'port'		=> 3306
 		],
 
 		'pgsql' => [

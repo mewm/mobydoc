@@ -3,8 +3,6 @@
 
 namespace Mobydoc\Documentation;
 
-use Mobydoc\Document;
-use Mobydoc\Storage\Document\DocumentRepositoryInterface;
 use Mobydoc\Storage\File\FileRepositoryInterface;
 
 class DocumentService
