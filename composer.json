@@ -1,43 +1,43 @@
 {
-	"name": "mewm/mobydoc",
-	"description": "",
-	"keywords": [],
-	"license": "MIT",
-	"type": "project",
-	"require": {
-		"laravel/framework": "~5.0",
-		"laravel/elixir": "~1.0",
-		"erusev/parsedown-extra": "dev-master"
-	},
-	"require-dev": {
-		"phpunit/phpunit": "~4.0"
-	},
-	"autoload": {
-		"classmap": [
-			"database",
-			"tests/TestCase.php"
-		],
-		"psr-4": {
-			"Mobydoc\\": "app/"
-		}
-	},
-	"scripts": {
-		"post-install-cmd": [
-			"php artisan clear-compiled",
-			"php artisan route:scan",
-			"php artisan event:scan",
-			"php artisan optimize"
-		],
-		"post-update-cmd": [
-			"php artisan clear-compiled",
-			"php artisan optimize"
-		],
-		"post-create-project-cmd": [
-			"php artisan key:generate"
-		]
-	},
-	"config": {
-		"preferred-install": "dist"
-	},
-	"minimum-stability": "dev"
+    "name": "mewm/mobydoc",
+    "description": "",
+    "keywords": [],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "laravel/framework": "~5.0",
+        "laravel/elixir": "~1.0",
+        "erusev/parsedown": "1.1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "classmap": [
+            "database",
+            "tests/TestCase.php"
+        ],
+        "psr-4": {
+            "Mobydoc\\": "app/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan clear-compiled",
+            "php artisan route:scan",
+            "php artisan event:scan",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "php artisan clear-compiled",
+            "php artisan optimize"
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev"
 }

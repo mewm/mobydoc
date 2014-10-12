@@ -3,20 +3,19 @@
 
 namespace Mobydoc\Documentation;
 
-use Mobydoc\Document;
+use Parsedown;
 
 class DocumentSynchronizer
 {
 	/**
-	 * @var \Parsedown
 	 */
 	private $parsedown;
 
 
 	/**
-	 * @param Parsedown|\Parsedown $parsedown
+	 * @param Parsedown $parsedown
 	 */
-	public function __construct(\Parsedown $parsedown)
+	public function __construct(Parsedown $parsedown)
 	{
 		$this->parsedown = $parsedown;
 	}
@@ -25,15 +24,10 @@ class DocumentSynchronizer
 	/**
 	 * @author Dennis Micky Jensen <dj@miinto.com>
 	 *
-	 * @param Document $document
-	 *
 	 * @return bool
 	 */
-	public function synchronize(Document $document)
+	public function synchronize()
 	{
 		return true;
 	}
-
-
-
 } 

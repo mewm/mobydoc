@@ -2,22 +2,22 @@
 
 namespace Mobydoc\Storage\DocumentMeta;
 
-use Mobydoc\Document;
+use Mobydoc\DocumentMeta;
 
 class DocumentMetaRepository implements DocumentMetaRepositoryInterface
 {
 	/**
-	 * @var Document
+	 * @var DocumentMeta
 	 */
-	private $document;
+	private $documentMeta;
 
 
 	/**
-	 * @param Document $document
+	 * @param DocumentMeta
 	 */
-	public function __construct(Document $document)
+	public function __construct(DocumentMeta $document)
 	{
-		$this->document = $document;
+		$this->documentMeta = $document;
 	}
 
 
@@ -30,7 +30,7 @@ class DocumentMetaRepository implements DocumentMetaRepositoryInterface
 	 */
 	public function getByPath($path)
 	{
-		$_documents = $this->document->where('path', $path)
+		$_documents = $this->documentMeta->where('path', $path)
 		                             ->orderBy('created_date', 'desc')
 		                             ->first();
 
@@ -43,7 +43,7 @@ class DocumentMetaRepository implements DocumentMetaRepositoryInterface
 	 */
 	public function getAll()
 	{
-		$_documents = $this->document->get();
+		$_documents = $this->documentMeta->get();
 
 		return $_documents;
 	}

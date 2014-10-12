@@ -22,12 +22,13 @@ return [
 		/*
 		 * Application Service Providers...
 		 */
-		'App\Providers\AppServiceProvider',
-		'App\Providers\ArtisanServiceProvider',
-		'App\Providers\ErrorServiceProvider',
-		'App\Providers\EventServiceProvider',
-		'App\Providers\LogServiceProvider',
-		'App\Providers\RouteServiceProvider',
+		'Mobydoc\Providers\AppServiceProvider',
+		'Mobydoc\Providers\ArtisanServiceProvider',
+		'Mobydoc\Providers\ErrorServiceProvider',
+		'Mobydoc\Providers\EventServiceProvider',
+		'Mobydoc\Providers\LogServiceProvider',
+		'Mobydoc\Providers\RouteServiceProvider',
+		'Mobydoc\Providers\StorageServiceProvider',
 
 		/*
 		 * Laravel Framework Service Providers...

@@ -45,9 +45,9 @@ gulp.task('scripts_body_dev', function () {
 });
 
 
-gulp.task('css_dev', function () {
-    return gulp.src('./resources/assets/css/*.css')
-        .pipe(gulp.dest('./public/css'));
-});
+//gulp.task('css_dev', function () {
+//    return gulp.src('./resources/assets/css/*.css')
+//        .pipe(gulp.dest('./public/css'));
+//});
 
 gulp.task('default', ['scripts_head_dev', 'scripts_body_dev', 'css_dev']);

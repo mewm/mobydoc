@@ -19,12 +19,9 @@ class HomeController
 		$this->documentService = $documentService;
 	}
 	/**
-	 * @Get("/", as="home")
 	 */
 	public function index()
 	{
-		
-		exit();
 		return view('home.index');
 	}
 	
