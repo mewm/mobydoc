@@ -14,11 +14,10 @@ class CreateDocumentMetaTable extends Migration {
 	{
 		Schema::create('document_meta', function(Blueprint $table) {
 			$table->increments('id');
-
-			$table->string('filename', 255);
-			$table->string('path')->unique();
+			$table->string('path')->index();
 			$table->text('html');
 			$table->text('markdown');
+			$table->dateTime('file_last_changed');
 			$table->timestamps();
 			$table->softDeletes();
 		});

@@ -14,13 +14,14 @@ class DocumentService
 	 */
 	private $docSynchronizer;
 
+
 	/**
-	 * @param DocumentBuilder             $docBuilder
-	 * @param DocumentSynchronizer        $docSynchronizer
+	 * @param DocumentBuilder      $docBuilder
+	 * @param DocumentSynchronizer $docSynchronizer
 	 */
 	public function __construct(DocumentBuilder $docBuilder, DocumentSynchronizer $docSynchronizer)
 	{
-		$this->docBuilder = $docBuilder;
+		$this->docBuilder      = $docBuilder;
 		$this->docSynchronizer = $docSynchronizer;
 	}
 
@@ -30,11 +31,19 @@ class DocumentService
 	 */
 	public function synchronizeEverything()
 	{
-		$_documents = $this->docBuilder->buildAll();
-		print "<pre>";
-		print_r($_documents);
-		exit();
+		$_syncedDocuments = [];
+		$_documents       = $this->docBuilder->buildAll();
+		
+		if (!empty($_documents)) {
+			foreach ($_documents as $document) {
+				if ($document->shouldBeSynced()) {
+					$_syncedDocuments[] = $this->docSynchronizer->synchronize($document);
+				}
+			}
+		}
+		
+		$this->docSynchronizer->removeSurplusMeta();
+		
+		return $_syncedDocuments;
 	}
-	
-	
 } 

@@ -27,6 +27,10 @@ class HomeController
 	
 	public function synchronizeDocumentation()
 	{
-		$this->documentService->synchronizeEverything();
+		echo 'Synced<pre>';
+		$syncedDocs = $this->documentService->synchronizeEverything();
+		foreach($syncedDocs as $doc) {
+			echo $doc->getFilePath() . "<br>";
+		}
 	}
 }

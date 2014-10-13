@@ -2,6 +2,7 @@
 
 namespace Mobydoc\Storage\DocumentMeta;
 
+use Mobydoc\Documentation\Document;
 use Mobydoc\DocumentMeta;
 
 class DocumentMetaRepository implements DocumentMetaRepositoryInterface
@@ -13,11 +14,24 @@ class DocumentMetaRepository implements DocumentMetaRepositoryInterface
 
 
 	/**
-	 * @param DocumentMeta
+	 * @param DocumentMeta $documentMeta
 	 */
-	public function __construct(DocumentMeta $document)
+	public function __construct(DocumentMeta $documentMeta)
 	{
-		$this->documentMeta = $document;
+		$this->documentMeta = $documentMeta;
+	}
+
+
+	/**
+	 * @author Dennis Micky Jensen <dj@miinto.com>
+	 *
+	 * @param $attributes
+	 *
+	 * @return DocumentMeta
+	 */
+	public function getByAttributes($attributes)
+	{
+		return $this->documentMeta->firstOrNew($attributes);
 	}
 
 
@@ -26,13 +40,13 @@ class DocumentMetaRepository implements DocumentMetaRepositoryInterface
 	 *
 	 * @param $path
 	 *
-	 * @return Document
+	 * @return DocumentMeta[]
 	 */
-	public function getByPath($path)
+	public function getLatestByPath($path)
 	{
 		$_documents = $this->documentMeta->where('path', $path)
-		                             ->orderBy('created_date', 'desc')
-		                             ->first();
+		                                 ->orderBy('created_at', 'desc')
+		                                 ->first();
 
 		return $_documents;
 	}
@@ -53,23 +67,33 @@ class DocumentMetaRepository implements DocumentMetaRepositoryInterface
 	 * @author Dennis Micky Jensen <dj@miinto.com>
 	 * @return Document[]
 	 */
-	public function getLatestDocumentRevisions()
+	public function getAllIndexedByPath()
 	{
-		// TODO: Implement getLatestDocumentRevisions() method.
-	}
+		$_indexedByPath = [];
+		$_allDocuments  = $this->getAll();
+		foreach ($_allDocuments as $doc) {
+			$_indexedByPath[$doc->path] = $doc;
+		}
 
-
-	public function save($document)
-	{
+		return $_indexedByPath;
 	}
 
 
 	/**
 	 * @author Dennis Micky Jensen <dj@miinto.com>
-	 * @return Document[]
+	 *
+	 * @param DocumentMeta $documentMeta
+	 *
+	 * @return bool
 	 */
-	public function getAllIndexedByPath()
+	public function save(DocumentMeta $documentMeta)
 	{
-		$_allDocuments = $this->getAll();
+		return $documentMeta->save();
+	}
+
+
+	public function deleteWherePathNotIn($filePathKeys)
+	{
+		return $this->documentMeta->whereNotIn('path', $filePathKeys)->delete();
 	}
 } 

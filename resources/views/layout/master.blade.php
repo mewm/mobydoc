@@ -28,10 +28,10 @@
 		<h1>Mobydoc</h1>
 	</div>
 	<div class="small-3 columns searchbox">
-		<input type="text" placeholder="Hex Value">
+		{{--<input type="text" placeholder="Hex Value">--}}
 	</div>
 	<div class="small-1 columns searchbox-prefix">
-		<a href="#" class="button postfix">Go</a>
+		{{--<a href="#" class="button postfix">Go</a>--}}
 	</div>
 	<div class="small-6 columns">
 	</div>

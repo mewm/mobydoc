@@ -4,7 +4,9 @@
 namespace Mobydoc\Documentation;
 
 use Mobydoc\Documentation;
+use Mobydoc\DocumentMeta;
 use Mobydoc\Storage\DocumentMeta\DocumentMetaRepositoryInterface;
+use SplFileInfo;
 
 class DocumentBuilder
 {
@@ -20,12 +22,12 @@ class DocumentBuilder
 
 	/**
 	 * @param DocumentMetaRepositoryInterface $docMetaRepo
-	 * @param FileTree                    $fileTree
+	 * @param FileTree                        $fileTree
 	 */
 	public function __construct(DocumentMetaRepositoryInterface $docMetaRepo, FileTree $fileTree)
 	{
-		$this->docMetaRepo  = $docMetaRepo;
-		$this->fileTree = $fileTree;
+		$this->docMetaRepo = $docMetaRepo;
+		$this->fileTree    = $fileTree;
 	}
 
 
@@ -39,10 +41,10 @@ class DocumentBuilder
 		$_docPath                 = base_path() . '/' . config('mobydoc.doc_path');
 		$_fileTreePathIndexed     = $this->fileTree->getFlatFileTreeIndexedByPath($_docPath);
 		$_documentTreePathIndexed = $this->docMetaRepo->getAllIndexedByPath();
-		dd($_documentTreePathIndexed);
+		
 		foreach ($_fileTreePathIndexed as $path => $file) {
-			
-			$_documents = $this->buildSingle($file, $_documentTreePathIndexed, $path    );
+			$_metaRelation = isset($_documentTreePathIndexed[$path]) ? $_documentTreePathIndexed[$path] : null;
+			$_documents[]  = $this->buildSingle($file, $_metaRelation);
 		}
 
 		return $_documents;
@@ -50,29 +52,24 @@ class DocumentBuilder
 
 
 	/**
-	 * @author Dennis Micky Jensen <dj@miinto.com>
+	 * @author   Dennis Micky Jensen <root@mewm.org>
 	 *
-	 * @param $file
-	 * @param $path
+	 * @param SplFileInfo       $file
+	 * @param DocumentMeta|null $metaRelation
 	 *
 	 * @return array
 	 */
-	protected function buildSingle(\SplFileInfo $file, $path)
+	public function buildSingle(\SplFileInfo $file, $metaRelation)
 	{
-		$_fileName      = $file->getBasename();
-		$_lastChanged   = date('Y-m-d H:i:s', $file->getCTime());
-		$_splFile       = $file->openFile();
-		$_fileSize      = $file->getSize();
-		$_markDown      = file_get_contents($file->getPath());
-		$_html          = null;
-		$_dbLastChanged = null;
-
-		if (isset($_documentTreePathIndexed[$path])) {
-			$_html          = $_documentTreePathIndexed[$path]->html;
-			$_dbLastChanged = $_documentTreePathIndexed[$path]->updated_at;
-		}
-
-		$_document = new Documentation\Document($_fileName, $path, $_lastChanged, $_markDown, $_html, $_dbLastChanged);
+		$_fileName            = $file->getBasename();
+		$_lastChanged         = date('Y-m-d H:i:s', $file->getCTime());
+		$_splFile             = $file->openFile();
+		$_fileSize            = $file->getSize();
+		$_markDown            = file_get_contents($file->getPath() . '/' . $file->getBasename());
+		$_html                = !is_null($metaRelation) ? $metaRelation->html : null;
+		$_metaFileLastChanged = !is_null($metaRelation) ? $metaRelation->file_last_changed : null;
+		$_path                = substr($file->getPath() . '/', strlen(base_path() . '/' . config('mobydoc.doc_path')));
+		$_document            = new Documentation\Document($_fileName, $_path, $_lastChanged, $_markDown, $_html, $_metaFileLastChanged);
 
 		return $_document;
 	}

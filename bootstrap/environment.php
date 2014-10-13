@@ -11,9 +11,9 @@
 |
 */
 
-if (file_exists(__DIR__.'/../.env'))
+if (file_exists(__DIR__.'/../.env.local'))
 {
-	Dotenv::load(__DIR__.'/../');
+	Dotenv::load(__DIR__.'/../', '.env.local');
 
 	//Dotenv::required('APP_ENV');
 }
@@ -32,5 +32,6 @@ if (file_exists(__DIR__.'/../.env'))
 
 $env = $app->detectEnvironment(function()
 {
-	return getenv('APP_ENV') ?: 'production';
+//	return getenv('APP_ENV') ?: 'production';
+	return 'local';
 });

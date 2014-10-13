@@ -41,17 +41,17 @@ class FileTree
 	 *
 	 * @param $path
 	 *
-	 * @return Spl
+	 * @return SplFileInfo[]
 	 */
 	public function getFlatFileTreeIndexedByPath($path)
 	{
 		$_fileTree            = $this->getFlatFileTree($path);
 		$_fileTreePathIndexed = [];
 		foreach ($_fileTree as &$file) {
-			$_filePath                        = ltrim(substr($file->getPath() . $file->getBasename(), strlen($path)), '/');
+			$_filePath                        = '/' . ltrim(substr($file->getPath() . '/' . $file->getBasename(), strlen($path)), '/');
 			$_fileTreePathIndexed[$_filePath] = $file;
 		}
-
+		
 		return $_fileTreePathIndexed;
 	}
 
