@@ -32,7 +32,9 @@ class DocumentService
 	public function synchronizeEverything()
 	{
 		$_syncedDocuments = [];
-		$_documents       = $this->docBuilder->buildAll();
+//		$_documents       = $this->docBuilder->buildAll();
+		$_documents       = $this->docBuilder->buildAllHierarchically();
+		print_r($_documents);
 		
 		if (!empty($_documents)) {
 			foreach ($_documents as $document) {

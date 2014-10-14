@@ -39,7 +39,9 @@
 
 
 <div class="row-left">
-	<div class="large-4 columns menu-column">Menu here</div>
+	<div class="large-4 columns menu-column">
+		{!! $menu !!}
+	</div>
 	<div class="large-8 columns content-column">
 		@yield('content')
 	</div>

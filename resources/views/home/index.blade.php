@@ -2,7 +2,6 @@
 
 @section('title') Home @parent @stop
 
-
 @section('content')
  <h1>Welcome</h1>
  <p>

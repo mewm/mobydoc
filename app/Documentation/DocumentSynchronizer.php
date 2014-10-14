@@ -2,6 +2,7 @@
 
 namespace Mobydoc\Documentation;
 
+use Mobydoc\Documentation\FileTree\FileTreeGenerator;
 use Mobydoc\Storage\DocumentMeta\DocumentMetaRepository;
 use Parsedown;
 
@@ -15,7 +16,7 @@ class DocumentSynchronizer
 	 */
 	private $documentMetaRepo;
 	/**
-	 * @var FileTree
+	 * @var FileTreeGenerator
 	 */
 	private $fileTree;
 
@@ -23,9 +24,9 @@ class DocumentSynchronizer
 	/**
 	 * @param Parsedown              $parsedown
 	 * @param DocumentMetaRepository $documentMetaRepo
-	 * @param FileTree               $fileTree
+	 * @param FileTreeGenerator               $fileTree
 	 */
-	public function __construct(Parsedown $parsedown, DocumentMetaRepository $documentMetaRepo, FileTree $fileTree)
+	public function __construct(Parsedown $parsedown, DocumentMetaRepository $documentMetaRepo, FileTreeGenerator $fileTree)
 	{
 		$this->parsedown        = $parsedown;
 		$this->documentMetaRepo = $documentMetaRepo;
