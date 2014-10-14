@@ -21,10 +21,6 @@ class StorageServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->bind(
-			'Mobydoc\\Storage\\DocumentMeta\\DocumentMetaRepositoryInterface',	
-			'Mobydoc\\Storage\\DocumentMeta\\DocumentMetaRepository'	
-		);
 	}
 
 }
